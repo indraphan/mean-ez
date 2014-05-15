@@ -21,12 +21,14 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
 
         // Query server for menus and check permissions
         queryMenu('main', defaultMainMenu);
+        queryMenu('contactmanager', defaultMainMenu);
 
         $scope.isCollapsed = false;
 
         $rootScope.$on('loggedin', function() {
 
             queryMenu('main', defaultMainMenu);
+            queryMenu('contactmanager', defaultMainMenu);
 
             $scope.global = {
                 authenticated: !! $rootScope.user,
